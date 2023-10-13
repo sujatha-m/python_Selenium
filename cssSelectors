@@ -1,0 +1,42 @@
+import time
+from selenium import webdriver
+
+opts = webdriver.ChromeOptions()
+opts.add_experimental_option("detach", True)
+driver = webdriver.Chrome(options=opts)
+
+driver.get("https://demo.actitime.com/login.do")
+driver.maximize_window()
+
+# driver.find_element("css selector", 'input[name="username"]').send_keys("hello")
+# time.sleep(2)
+
+"""
+drawback of css selector
+1. if the attributes are not present, then it is difficult to write css selector expression
+2. CSS selector does not have text attribute (no elements can be located using its text in css selector)
+2. indexing is not supported in css selector
+"""
+
+# parent-child relation ship
+"""
+tr = parent
+td - parent
+input - immediate child
+
+
+td>input[attr_name="attr_value"]
+
+tr input[attr_name="attr_value"]
+"""
+driver.find_element("css selector", 'tr input[name="username"]').send_keys("steve")
+time.sleep(2)
+
+driver.find_element("css selector", 'td>input[name="pwd"]').send_keys("password")
+time.sleep(2)
+
+driver.close()
+
+
+
+# we cannot traverse back, i, e from child to parent
