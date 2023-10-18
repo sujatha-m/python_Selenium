@@ -20,7 +20,7 @@ driver = webdriver.Chrome(options=opts)
 driver.get("C:\\Users\sujat\PycharmProjects\python_Selenium\HTMLfiles\demo.html")
 driver.maximize_window()
 
-elements = driver.find_element("id", "multiple_cars")
+elements = driver.find_element("id", "standard_cars")
 select_obj = Select(elements)
 
 # Selecting the obj by index
@@ -76,14 +76,6 @@ print(values)
 for value in values:
     select_obj.select_by_value(value)
     time.sleep(1)
-
-
-
-
-
-
-
-
 
 driver.close()
 
